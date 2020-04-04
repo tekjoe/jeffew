@@ -1,7 +1,7 @@
-import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 
-const Button = styled.a`
+const Button = styled(Link)`
   background: ${({ theme }) => theme.elementBackground};
   display: inline-block;
   color: ${({ theme }) => theme.background};
@@ -11,8 +11,9 @@ const Button = styled.a`
   padding: 1rem 2rem;
   cursor: pointer;
   text-transform: uppercase;
+  text-decoration: none;
 `
-Button.Inverse = styled.a`
+Button.Inverse = styled(Link)`
   background: ${({ theme }) => theme.background};
   display: inline-block;
   color: ${({ theme }) => theme.darkGray};
@@ -22,6 +23,7 @@ Button.Inverse = styled.a`
   padding: 1rem 2rem;
   cursor: pointer;
   text-transform: uppercase;
+  text-decoration: none;
   border: 1px solid ${({ theme }) => theme.darkGray};
 `
 

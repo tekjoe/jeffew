@@ -1,10 +1,10 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
-
 import Container from "./Container"
 import styled from "styled-components"
 import { motion } from "framer-motion"
 import menu from "../images/menu.svg"
+import { Link } from "gatsby"
 
 const Navbar = styled.nav`
   display: flex;
@@ -63,21 +63,6 @@ DesktopNav.Navigation = styled.ul`
   }
 `
 
-const Button = styled.a`
-  background: ${({ theme }) => theme.cyan};
-  display: inline-block;
-  color: #fafafa;
-  font-weight: bold;
-  font-size: 1.25rem;
-  padding: 0.5rem 2rem;
-  width: 100%;
-  border-radius: 2rem;
-  cursor: pointer;
-  &:hover {
-    background: ${({ theme }) => theme.lighterCyan};
-  }
-`
-
 Navbar.Logo = styled.img`
   object-fit: contain;
 `
@@ -88,6 +73,11 @@ Navbar.Menu = styled.img`
   @media (min-width: 768px) {
     display: none;
   }
+`
+
+Navbar.Link = styled(Link)`
+  text-decoration: none;
+  color: ${({ theme }) => theme.color};
 `
 
 const Header = ({ siteTitle }) => {
@@ -107,8 +97,12 @@ const Header = ({ siteTitle }) => {
           <Navbar.Menu src={menu} onClick={toggleMenu} />
           <DesktopNav>
             <DesktopNav.Navigation>
-              <li>Home</li>
-              <li>Portfolio</li>
+              <li>
+                <Navbar.Link to="/">Home</Navbar.Link>
+              </li>
+              <li>
+                <Navbar.Link to="/portfolio/">Portfolio</Navbar.Link>
+              </li>
               <li>Contact Me</li>
             </DesktopNav.Navigation>
           </DesktopNav>

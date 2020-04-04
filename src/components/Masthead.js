@@ -16,16 +16,16 @@ Masthead.Image = styled.div`
 `
 Masthead.CTA = styled.div`
   h2 {
-    font-size: 2.5rem;
-    line-height: 1.1;
+    font-size: 2rem;
     margin-bottom: 2.5rem;
+    line-height: 1.2;
   }
   @media (min-width: 768px) {
     h2 {
       font-size: 3.5rem;
     }
     position: absolute;
-    width: 40%;
+    width: 50%;
     background: ${({ theme }) => theme.background};
     bottom: 4rem;
     padding: 3rem 3rem 0 0;

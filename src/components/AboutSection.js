@@ -27,8 +27,7 @@ AboutSection.Body = styled.div`
   flex: 1;
   h2 {
     margin-bottom: 1rem;
-    line-height: 1;
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   p {
     line-height: 1.7;

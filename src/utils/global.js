@@ -1,7 +1,6 @@
 import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap');
   *,*::before, *::after {
     margin: 0;
     padding: 0;
@@ -16,6 +15,8 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
   }
   h1,h2,h3,h4,h5,h6 {
-    font-family: "Crimson Text", serif;
+    font-family: "Inknut Antiqua", serif;
+    font-weight: 500;
+    line-height: 1.06;
   }
 `

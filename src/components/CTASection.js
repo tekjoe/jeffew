@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import Image from "./image"
 import Button from "./Button"
 
 const CTASection = styled.section`
@@ -14,9 +13,8 @@ CTASection.Body = styled.div`
   text-align: center;
   margin: 5rem 0;
   h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 3rem;
-    line-height: 1;
   }
   @media (min-width: 768px) {
     display: flex;
@@ -27,7 +25,8 @@ CTASection.Body = styled.div`
       margin-right: 1rem;
       flex: 2;
       text-align: left;
-      font-size: 3rem;
+      font-size: 2.75rem;
+      line-height: 1.2;
     }
     a {
       margin-left: 2rem;
