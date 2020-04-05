@@ -25,14 +25,7 @@ AboutSection.Body = styled.div`
   border-top: 1px solid ${({ theme }) => theme.lightGray};
   border-bottom: 1px solid ${({ theme }) => theme.lightGray};
   flex: 1;
-  h2 {
-    margin-bottom: 1rem;
-    font-size: 2rem;
-  }
   p {
-    line-height: 1.7;
-    margin-bottom: 2rem;
-    font-size: 1.125rem;
     color: ${({ theme }) => theme.darkGray};
   }
   @media (min-width: 768px) {
@@ -67,7 +60,7 @@ export default () => {
           some cold crispies. I tend to sip on double IPAs, but I've been known
           to step outside of my comfort zone and try single IPAs.
         </p>
-        <Button.Inverse>Go To Portfolio</Button.Inverse>
+        <Button.Inverse to="/portfolio">Go To Portfolio</Button.Inverse>
       </AboutSection.Body>
     </AboutSection>
   )

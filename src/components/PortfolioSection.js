@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { useMediaQuery } from "react-responsive"
 import styled from "styled-components"
 import Image from "../components/image"
 import Button from "../components/Button"
+import CTASection from "./CTASection"
 
 const PortfolioSection = styled.section`
   margin: 2rem;
   @media (min-width: 768px) {
-    margin: 4rem 2rem;
+    margin: 4rem 0;
   }
 `
 
@@ -85,6 +86,7 @@ export default () => {
           </PortfolioSection.Body>
         </PortfolioSection.Project>
       ))}
+      <CTASection />
     </PortfolioSection>
   )
 }

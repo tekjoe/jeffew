@@ -5,7 +5,7 @@ import Button from "./Button"
 const CTASection = styled.section`
   margin: 2rem;
   @media (min-width: 768px) {
-    margin: 10rem 2rem;
+    margin: 10rem 0;
   }
 `
 
@@ -25,7 +25,6 @@ CTASection.Body = styled.div`
       margin-right: 1rem;
       flex: 2;
       text-align: left;
-      font-size: 2.75rem;
       line-height: 1.2;
     }
     a {

@@ -15,20 +15,20 @@ Masthead.Image = styled.div`
   margin-bottom: 2rem;
 `
 Masthead.CTA = styled.div`
-  h2 {
-    font-size: 2rem;
+  h1 {
     margin-bottom: 2.5rem;
     line-height: 1.2;
+    font-size: ${({ theme }) => theme.typography.h4};
   }
   @media (min-width: 768px) {
-    h2 {
-      font-size: 3.5rem;
-    }
     position: absolute;
     width: 50%;
     background: ${({ theme }) => theme.background};
     bottom: 4rem;
     padding: 3rem 3rem 0 0;
+    h1 {
+      font-size: ${({ theme }) => theme.typography.h1};
+    }
   }
 `
 
@@ -51,7 +51,7 @@ export default () => {
         <Image />
       </Masthead.Image>
       <Masthead.CTA>
-        <h2>Hey, my name-a Jeff and I love building custom keyboards</h2>
+        <h1>Hey, my name-a Jeff and I love building custom keyboards</h1>
         <Button>About Me</Button>
       </Masthead.CTA>
     </Masthead>

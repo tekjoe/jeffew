@@ -10,6 +10,9 @@ const Navbar = styled.nav`
   display: flex;
   justify-content: space-between;
   margin: 2rem;
+  h2 {
+    margin-bottom: 0;
+  }
   @media (min-width: 768px) {
     justify-content: initial;
     margin: 4rem 2rem 2rem 2rem;
@@ -93,7 +96,7 @@ const Header = ({ siteTitle }) => {
     <header>
       <Container>
         <Navbar>
-          <h1>{siteTitle}</h1>
+          <h2>{siteTitle}</h2>
           <Navbar.Menu src={menu} onClick={toggleMenu} />
           <DesktopNav>
             <DesktopNav.Navigation>
