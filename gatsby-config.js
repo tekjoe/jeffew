@@ -2,10 +2,11 @@ module.exports = {
   siteMetadata: {
     title: `Jeff.ew`,
     description: `Hey, I'm Matt Dugan and I love eating ass.`,
-    author: `@gatsbyjs`,
+    author: `Joe Ramirez (tekjoe)`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
