@@ -29,13 +29,13 @@ const Layout = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <GlobalStyle />
       <Header
         siteTitle={data.site.siteMetadata.title}
         toggleTheme={toggleTheme}
       />
       <main>{children}</main>
       <Footer />
-      <GlobalStyle />
     </ThemeProvider>
   )
 }
