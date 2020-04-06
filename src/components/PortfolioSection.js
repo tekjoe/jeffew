@@ -1,7 +1,7 @@
 import React from "react"
 import { useMediaQuery } from "react-responsive"
 import styled from "styled-components"
-import Image from "../components/image"
+import Img from "gatsby-image"
 import Button from "../components/Button"
 import CTASection from "./CTASection"
 
@@ -51,12 +51,7 @@ PortfolioSection.Body = styled.div`
   }
 `
 
-export default () => {
-  const projects = [
-    { name: "Ortho Keeb", id: 1 },
-    { name: "Computer Desk", id: 2 },
-    { name: "Artisan Dildon't", id: 3 },
-  ]
+export default ({ projects }) => {
   const isDesktop = useMediaQuery({ query: "(min-width: 768px)" })
   const imageStyles = {
     desktop: { flex: 1, margin: "0 2rem" },
@@ -65,14 +60,20 @@ export default () => {
   return (
     <PortfolioSection>
       {projects.map(project => (
-        <PortfolioSection.Project key={project.id}>
+        <PortfolioSection.Project key={project.node.id}>
           {isDesktop ? (
-            <Image style={imageStyles.desktop} />
+            <Img
+              fluid={project.node.frontmatter.image.childImageSharp.fluid}
+              style={imageStyles.desktop}
+            />
           ) : (
-            <Image style={imageStyles.mobile} />
+            <Img
+              fluid={project.node.frontmatter.image.childImageSharp.fluid}
+              style={imageStyles.mobile}
+            />
           )}
           <PortfolioSection.Body>
-            <h2>{project.name}</h2>
+            <h2>{project.node.frontmatter.title}</h2>
             <p>
               I'm an experience DIYer who specializes in building artisinal,
               hand-crafted mechanical keyboards. I focus on using only the
@@ -82,7 +83,9 @@ export default () => {
               IPAs, but I've been known to step outside of my comfort zone and
               try single IPAs.
             </p>
-            <Button.Inverse to="/project">View Project</Button.Inverse>
+            <Button.Inverse to={project.node.frontmatter.path}>
+              View Project
+            </Button.Inverse>
           </PortfolioSection.Body>
         </PortfolioSection.Project>
       ))}

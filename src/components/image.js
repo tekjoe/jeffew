@@ -19,7 +19,7 @@ const Image = ({ style, imgStyle }) => {
       placeholderImage: file(relativePath: { eq: "keyboard.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_tracedSVG
           }
         }
       }

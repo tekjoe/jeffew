@@ -5,7 +5,7 @@ import Button from "./Button"
 const CTASection = styled.section`
   margin: 2rem;
   @media (min-width: 768px) {
-    margin: 10rem 0;
+    margin: 10rem 2rem;
   }
 `
 
@@ -46,7 +46,7 @@ export default () => {
       <CTASection.Body>
         <h2>Interested in doing a project together?</h2>
         <CTASection.Span />
-        <Button.Inverse>Contact Me</Button.Inverse>
+        <Button.Inverse to="/">Contact Me</Button.Inverse>
       </CTASection.Body>
     </CTASection>
   )

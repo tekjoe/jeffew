@@ -9,6 +9,7 @@ import { Link } from "gatsby"
 const Navbar = styled.nav`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 2rem;
   h2 {
     margin-bottom: 0;
@@ -21,14 +22,15 @@ const Navbar = styled.nav`
 
 const MobileNav = styled(motion.nav)`
   position: absolute;
-  padding: 1.75rem;
-  border-radius: 0.5rem;
-  left: 2rem;
-  text-align: center;
+  padding: 4rem 2rem;
+  text-align: right;
+  right: 0;
+  top: 0;
+  height: 100%;
   color: white;
   font-weight: bold;
-  margin-top: 1rem;
-  width: calc(100vw - 4rem);
+  z-index: 1;
+  overflow: hidden;
   background: ${({ theme }) => theme.elementBackground};
   ul {
     list-style-type: none;
@@ -38,6 +40,10 @@ const MobileNav = styled(motion.nav)`
     }
     li {
       padding: 0.75rem 0;
+      a {
+        color: white;
+        text-decoration: none;
+      }
     }
   }
 `
@@ -63,6 +69,9 @@ DesktopNav.Navigation = styled.ul`
     font-weight: 500;
     text-transform: uppercase;
     color: ${({ theme }) => theme.grayishViolet};
+    &:last-of-type {
+      margin-right: 0;
+    }
   }
 `
 
@@ -73,6 +82,7 @@ Navbar.Menu = styled.img`
   height: 1.5rem;
   width: 1.5rem;
   cursor: pointer;
+  z-index: 2;
   @media (min-width: 768px) {
     display: none;
   }
@@ -89,8 +99,36 @@ const Header = ({ siteTitle }) => {
     setIsToggled(!isToggled)
   }
   const variants = {
-    open: { display: "block", opacity: 1 },
-    closed: { opacity: 0, transitionEnd: { display: "none" } },
+    open: {
+      width: "70vw",
+      opacity: 1,
+      transition: {
+        type: "spring",
+        damping: 15,
+        duration: 0.15,
+        staggerChildren: 0.03,
+        delayChildren: 0.2,
+        staggerDirection: -1,
+      },
+      transitionEnd: {
+        display: "block",
+      },
+    },
+    closed: {
+      width: 0,
+      opacity: 0.1,
+      transition: {
+        duration: 0.15,
+        staggerChildren: 0.03,
+        staggerDirection: 1,
+        when: "afterChildren",
+      },
+      transitionEnd: { display: "none" },
+    },
+  }
+  const item = {
+    open: { opacity: 1 },
+    closed: { opacity: 0 },
   }
   return (
     <header>
@@ -113,14 +151,31 @@ const Header = ({ siteTitle }) => {
         <MobileNav
           animate={isToggled ? "open" : "closed"}
           variants={variants}
-          transition={{ duration: 0.3 }}
           initial={false}
         >
-          <ul>
-            <li>Home</li>
-            <li>Portfolio</li>
-            <li>Contact Me</li>
-          </ul>
+          <motion.ul>
+            <motion.li
+              variants={item}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Navbar.Link to="/">Home</Navbar.Link>
+            </motion.li>
+            <motion.li
+              variants={item}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Navbar.Link to="/portfolio">Portfolio</Navbar.Link>
+            </motion.li>
+            <motion.li
+              variants={item}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Navbar.Link to="/">Contact Me</Navbar.Link>
+            </motion.li>
+          </motion.ul>
         </MobileNav>
       </Container>
     </header>

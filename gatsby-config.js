@@ -3,6 +3,8 @@ module.exports = {
     title: `Jeff.ew`,
     description: `Hey, I'm Matt Dugan and I love eating ass.`,
     author: `Joe Ramirez (tekjoe)`,
+    image: `/images/jeffew.jpg`,
+    url: `https://jeffew.netlify.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -14,6 +16,14 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown-pages`,
+        path: `${__dirname}/src/markdown-pages`,
+      },
+    },
+    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
