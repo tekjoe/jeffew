@@ -56,7 +56,7 @@ ProjectSection.Control = styled.div`
 `
 
 export default function Template({ data, pageContext }) {
-  const isDesktop = useMediaQuery({ minWidth: 768 })
+  const isMobile = useMediaQuery({ maxWidth: 768 })
   const imageStyles = {
     desktop: { height: "550px", width: "100%" },
     mobile: { height: "300px", width: "100%" },
@@ -70,15 +70,15 @@ export default function Template({ data, pageContext }) {
       <Container>
         <ProjectSection>
           <ProjectSection.ImageContainer>
-            {isDesktop ? (
+            {isMobile ? (
               <Img
-                style={imageStyles.desktop}
+                style={imageStyles.mobile}
                 fluid={featuredImgFluid}
                 imgStyle={{ height: "auto", width: "auto" }}
               />
             ) : (
               <Img
-                style={imageStyles.mobile}
+                style={imageStyles.desktop}
                 fluid={featuredImgFluid}
                 imgStyle={{ height: "auto", width: "auto" }}
               />

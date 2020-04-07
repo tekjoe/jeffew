@@ -52,24 +52,26 @@ PortfolioSection.Body = styled.div`
 `
 
 export default ({ projects }) => {
-  const isDesktop = useMediaQuery({ query: "(min-width: 768px)" })
+  const isMobile = useMediaQuery({ maxWidth: 768 })
   const imageStyles = {
-    desktop: { flex: 1, margin: "0 2rem" },
+    desktop: { margin: "0 2rem", flex: 1 },
     mobile: { margin: "2rem 0" },
   }
   return (
     <PortfolioSection>
       {projects.map(project => (
         <PortfolioSection.Project key={project.node.id}>
-          {isDesktop ? (
+          {isMobile ? (
             <Img
               fluid={project.node.frontmatter.image.childImageSharp.fluid}
-              style={imageStyles.desktop}
+              style={imageStyles.mobile}
+              imgStyle={{ width: "auto" }}
             />
           ) : (
             <Img
               fluid={project.node.frontmatter.image.childImageSharp.fluid}
-              style={imageStyles.mobile}
+              style={imageStyles.desktop}
+              imgStyle={{ width: "auto" }}
             />
           )}
           <PortfolioSection.Body>
