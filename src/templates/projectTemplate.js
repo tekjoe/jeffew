@@ -56,7 +56,7 @@ ProjectSection.Control = styled.div`
 `
 
 export default function Template({ data, pageContext }) {
-  const isDesktop = useMediaQuery({ query: "(min-width: 768px)" })
+  const isDesktop = useMediaQuery({ minWidth: 768 })
   const imageStyles = {
     desktop: { height: "550px", width: "100%" },
     mobile: { height: "300px", width: "100%" },
